@@ -1,0 +1,91 @@
+﻿@model Assignment3.Models.Teacher
+@{
+    ViewBag.Title = "update";
+}
+
+<h2>update</h2>
+<a class="navlink" href="/Teacher/List">Back To Teachers List</a>
+<h2>New Teacher</h2>
+<form method="POST" action="/Teacher/update/@Model.TeacherId" onsubmit="return ValidateTeacher()">
+    <div class="inputrow">
+        <label for="teacherFname">First Name:</label>
+        <input type="text" id="teacherFname" name="teacherFname" value="@Model.TeacherFName" />
+
+    </div>
+    <div class="inputrow">
+        <label for="teacherlname">Last Name:</label>
+        <input type="text" id="teacherlname" name="teacherlname" value="@Model.TeacherLName"/>
+
+    </div>
+    <div class="inputrow">
+        <label for="teacherNumber">Employee Number:</label>
+        <input type="text" id="teacherNumber" name="teacherNumber" value="@Model.Teachernumber"/>
+    </div>
+
+    <div class="inputrow">
+        <label for="salary">Salary:</label>
+        <input type="text" id="salary" name="salary" value="@Model.Teachersalary"/>
+    </div>
+    <div class="inputrow">
+        <input type="submit" value="Update Teacher" />
+    </div>
+
+    <div id="ErrorBox" style="display:none;"></div>
+</form>
+
+<script type="text/javascript">
+    //variable from HTML element
+    var teacherfName = document.getElementById('teacherFname');
+    var teacherlname = document.getElementById('teacherlname');
+    var teacherNumber = document.getElementById('teacherNumber');
+    var salary = document.getElementById('salary');
+
+    var errorbox = document.getElementById("ErrorBox");
+
+    function ValidateTeacher() {
+        //check if teahcerFName is ""
+        if (teacherfName.value === "") {
+            errorbox.style.display = 'block';
+            errorbox.innerHTML += "Teacher First Name must be filled<br>";
+            return false;
+        } else {
+            errorbox.style.display = 'none';
+            errorbox.innerHTML = "";
+        }
+
+        //check if teahcerLName is ""
+        if (teacherlname.value === "") {
+            errorbox.style.display = 'block';
+            errorbox.innerHTML += "Teacher Last Name must be filled<br>";
+            return false;
+        } else {
+            errorbox.style.display = 'none';
+            errorbox.innerHTML = "";
+        }
+
+        //check if teahcerNumber is ""
+        if (teacherNumber.value === "") {
+            errorbox.style.display = 'block';
+            errorbox.innerHTML += "Teacher Number must be filled<br>";
+            return false;
+        } else {
+            errorbox.style.display = 'none';
+            errorbox.innerHTML = "";
+        }
+
+        //check if salary is ""
+        if (salary.value === "") {
+            errorbox.style.display = 'block';
+            errorbox.innerHTML += "Salary must be filled<br>";
+            return false;
+        } else {
+            errorbox.style.display = 'none';
+            errorbox.innerHTML = "";
+        }
+
+        if (teacherfName.value != "" && teacherlname.value != "" && teacherNumber.value != "" & salary.value != "") {
+
+        }
+    }
+
+</script>

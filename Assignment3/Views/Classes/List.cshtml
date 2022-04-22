@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Assignment3.Models.Classes>
+@{
+    ViewBag.Title = "List";
+}
+
+
+<div id="containerlist">
+    <a href="/Home/Index">Back to Main Menu</a>
+
+    <h3>List of Teachers</h3>
+    <p>There are @Model.Count() Classes in the system</p>
+
+    @foreach (var classes in Model)
+    {
+        <div>
+            <a href="/Classes/show/@classes.ClassID">@classes.ClassCode</a> - @classes.ClassName
+        </div>
+    }
+</div>

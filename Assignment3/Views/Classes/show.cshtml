@@ -1,0 +1,20 @@
+﻿@model Assignment3.Models.ViewModel.ShowStudents
+@{
+    ViewBag.Title = "show";
+}
+
+<a class="navlink" href="/Classes/List">Back To Classes List</a>
+<div id="containershow">
+    <h3>@Model.Classes.ClassName</h3>
+    <!-- Trying to get detail teacher id-->
+    <p>Teacher: <a href="/Teacher/Show/@Model.Classes.TeacherID">@Model.Classes.TeacherName</a></p>
+    <p> Start Date: @Model.Classes.StartClass.ToString("yyyy-MM-dd")</p>
+    <p> End Date: @Model.Classes.EndClass.ToString("yyyy-MM-dd")</p>
+
+    <br/>
+    <b>List Students</b> <br/>
+    @foreach(var student in @Model.Students)
+    {
+        <a href="/Student/Show/@student.StudentID">@student.StudentName </a> <br/>
+    }
+</div>

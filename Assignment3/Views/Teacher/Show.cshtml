@@ -1,0 +1,24 @@
+﻿@model Assignment3.Models.ViewModel.ShowTeacher
+@{
+    ViewBag.Title = "Show";
+
+}
+
+<a class="navlink" href="/Teacher/List">Back To Teachers List</a>
+<br />
+<a class="dellink" href="/Teacher/DeleteConfirm/@Model.Teacher.TeacherId">Delete</a> <br/>
+<a class="navlink" href="/Teacher/update/@Model.Teacher.TeacherId">Update</a>
+<div id="containershow">
+    <h3>@Model.Teacher.TeacherFName @Model.Teacher.TeacherLName</h3>
+    <p>Employee #: @Model.Teacher.Teachernumber</p>
+    <p> Hire Date: @Model.Teacher.TeacherHire.ToString("yyyy-MM-dd")</p>
+    <p>Salary: @Model.Teacher.Teachersalary</p>
+
+    <b>Courses Taught</b>
+    <br/>
+    @foreach (var classes in @Model.classesTaught)
+        {
+            <a href="/Classes/Show/@classes.ClassID">@classes.ClassName</a> <br/>
+        }   
+
+</div>

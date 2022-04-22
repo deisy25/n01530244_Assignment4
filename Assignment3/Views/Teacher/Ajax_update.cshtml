@@ -1,0 +1,47 @@
+﻿@model Assignment3.Models.Teacher
+
+@{
+    ViewBag.Title = "Ajax_update";
+}
+<div id="containershow">
+    <nav>
+        <a class="navlink" href="/Teacher/List">Back To Teachers List</a>
+    </nav>
+    <h2>New Teacher</h2>
+
+    @{
+        /* AJAX Request to add Teacher */
+        /* No form submission needed */
+        /* button onclick will handle form submission */
+        /* Each item has an ID for validation && ajax submission */
+
+
+    }
+    <div class="inputrow">
+        <label for="teacherFname">First Name:</label>
+        <input type="text" id="teacherFname" name="teacherFname" value="@Model.TeacherFName" />
+
+    </div>
+    <div class="inputrow">
+        <label for="teacherlname">Last Name:</label>
+        <input type="text" id="teacherlname" name="teacherlname" value="@Model.TeacherLName" />
+
+    </div>
+    <div class="inputrow">
+        <label for="teacherNumber">Employee Number:</label>
+        <input type="text" id="teacherNumber" name="teacherNumber" value="@Model.Teachernumber" />
+    </div>
+
+    <div class="inputrow">
+        <label for="salary">Salary:</label>
+        <input type="text" id="salary" name="salary" value="@Model.Teachersalary"/>
+    </div>
+    @{
+        //AddTeacher() is a JS method defined in /Scripts/Teacher.js
+    }
+
+    <button onclick="UpdateTeacher(@Model.TeacherId);">Update Teacher</button>
+
+
+    <div id="ErrorBox" style="display:none;"></div>
+</div>
